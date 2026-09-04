@@ -93,6 +93,163 @@ if (menuButton && mobileMenu) {
 
 
 /* =========================================================
+   AVISO DE PRIVACIDAD
+========================================================= */
+
+const privacyModal =
+  document.getElementById('privacyModal');
+
+const privacyModalBackdrop =
+  document.getElementById('privacyModalBackdrop');
+
+const privacyModalClose =
+  document.getElementById('privacyModalClose');
+
+const privacyMenuButton =
+  document.getElementById('privacyMenuButton');
+
+const mobilePrivacyButton =
+  document.getElementById('mobilePrivacyButton');
+
+const footerPrivacyButton =
+  document.getElementById('footerPrivacyButton');
+
+
+function openPrivacyModal() {
+
+  if (!privacyModal) {
+    return;
+  }
+
+
+  privacyModal.classList.add('open');
+
+  privacyModal.setAttribute(
+    'aria-hidden',
+    'false'
+  );
+
+  document.body
+    .classList
+    .add('modal-open');
+
+
+  if (
+    mobileMenu &&
+    mobileMenu.classList.contains('open')
+  ) {
+
+    mobileMenu
+      .classList
+      .remove('open');
+
+
+    if (menuButton) {
+
+      menuButton.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+    }
+
+  }
+
+
+  window.setTimeout(
+    () => {
+
+      if (privacyModalClose) {
+
+        privacyModalClose.focus();
+
+      }
+
+    },
+    100
+  );
+
+}
+
+
+function closePrivacyModal() {
+
+  if (!privacyModal) {
+    return;
+  }
+
+
+  privacyModal.classList.remove('open');
+
+  privacyModal.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body
+    .classList
+    .remove('modal-open');
+
+}
+
+
+[
+  privacyMenuButton,
+  mobilePrivacyButton,
+  footerPrivacyButton
+]
+  .filter(Boolean)
+  .forEach(
+    (button) => {
+
+      button.addEventListener(
+        'click',
+        openPrivacyModal
+      );
+
+    }
+  );
+
+
+if (privacyModalClose) {
+
+  privacyModalClose.addEventListener(
+    'click',
+    closePrivacyModal
+  );
+
+}
+
+
+if (privacyModalBackdrop) {
+
+  privacyModalBackdrop.addEventListener(
+    'click',
+    closePrivacyModal
+  );
+
+}
+
+
+document.addEventListener(
+  'keydown',
+  (event) => {
+
+    if (
+      event.key === 'Escape' &&
+      privacyModal &&
+      privacyModal.classList.contains('open')
+    ) {
+
+      closePrivacyModal();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
    REVEAL ON SCROLL
 ========================================================= */
 
@@ -312,10 +469,6 @@ const pillarsDots =
 let carouselPositions =
   [];
 
-
-/* =========================================================
-   CALCULAR POSICIONES
-========================================================= */
 
 function buildCarouselPositions() {
 
@@ -691,11 +844,6 @@ function updateTechnologyMobileParallax() {
   }
 
 
-  /*
-   * En escritorio CSS utiliza:
-   *
-   * background-attachment: fixed
-   */
   if (window.innerWidth > 720) {
 
     technologySection.style
