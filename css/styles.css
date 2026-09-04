@@ -263,10 +263,15 @@ textarea{
   transform:scale(1.02);
 }
 
+/*
+ * Menú ligeramente más arriba para evitar
+ * que se cruce visualmente con los rostros.
+ */
 .desktop-nav{
   display:flex;
   align-items:center;
   gap:25px;
+  transform:translateY(-6px);
 }
 
 .desktop-nav a,
@@ -385,6 +390,12 @@ textarea{
     ),
     url("../assets/images/vacantes-ascolta.png")
     center/cover no-repeat;
+
+  /*
+   * Bajamos ligeramente el encuadre.
+   * Esto permite dar más aire sobre las cabezas.
+   */
+  background-position:center 16%;
 
   transform:scale(1.04);
   animation:heroZoom 16s ease-in-out infinite alternate;
@@ -2153,7 +2164,9 @@ textarea{
 }
 
 
-/* Registros y permisos integrados al footer */
+/* =========================================================
+   REGISTROS Y PERMISOS EN FOOTER
+========================================================= */
 
 .footer-credentials{
   display:grid;
@@ -2785,6 +2798,7 @@ button:focus-visible{
 
   .desktop-nav{
     display:none;
+    transform:none;
   }
 
   .menu-button{
@@ -2996,7 +3010,7 @@ button:focus-visible{
   }
 
   .hero-bg{
-    background-position:59% center;
+    background-position:58% 18%;
   }
 
   .hero-content{
