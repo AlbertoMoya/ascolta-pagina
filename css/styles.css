@@ -657,12 +657,6 @@ textarea{
   width:100%;
   height:100%;
   object-fit:cover;
-
-  /*
-   * IMPORTANTE:
-   * Movemos el encuadre hacia arriba para conservar
-   * completas las cabezas del equipo.
-   */
   object-position:center 20%;
 
   transition:
@@ -1972,142 +1966,6 @@ textarea{
 
 
 /* =========================================================
-   REGISTROS
-========================================================= */
-
-.credentials-section{
-  position:relative;
-  overflow:hidden;
-  padding:20px 0 74px;
-
-  background:linear-gradient(
-    180deg,
-    #fff 0%,
-    #f5f9f7 100%
-  );
-}
-
-.credentials-heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:30px;
-  margin-bottom:20px;
-}
-
-.credentials-heading .section-kicker{
-  margin-bottom:0;
-}
-
-.credentials-heading p{
-  max-width:480px;
-  margin:0;
-  color:var(--text-600);
-  font-size:.84rem;
-  text-align:right;
-}
-
-.credentials-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  max-width:860px;
-  margin:0 auto;
-}
-
-.credential-card{
-  position:relative;
-  overflow:hidden;
-  min-height:175px;
-  padding:22px 24px;
-  border:1px solid rgba(6,84,58,.1);
-  border-radius:20px;
-
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.96),
-    rgba(246,250,248,.94)
-  );
-
-  box-shadow:0 14px 38px rgba(4,61,44,.05);
-}
-
-.credential-card::after{
-  content:"";
-  position:absolute;
-  left:24px;
-  bottom:0;
-  width:60px;
-  height:3px;
-  border-radius:999px 999px 0 0;
-
-  background:linear-gradient(
-    90deg,
-    var(--green-500),
-    var(--green-800)
-  );
-}
-
-.credential-watermark{
-  position:absolute;
-  right:16px;
-  bottom:-2px;
-  color:rgba(4,61,44,.05);
-  font-size:clamp(3.2rem,5.5vw,5rem);
-  font-weight:900;
-  line-height:.9;
-  letter-spacing:-.07em;
-  pointer-events:none;
-}
-
-.credential-kicker{
-  position:relative;
-  z-index:2;
-  display:inline-flex;
-  margin-bottom:8px;
-  color:var(--green-700);
-  font-size:.62rem;
-  font-weight:900;
-  letter-spacing:.12em;
-}
-
-.credential-card h3{
-  position:relative;
-  z-index:2;
-  max-width:390px;
-  margin:0 0 8px;
-  color:var(--text-950);
-  font-size:clamp(1.18rem,2.2vw,1.5rem);
-  line-height:1.1;
-  letter-spacing:-.04em;
-}
-
-.credential-card p{
-  position:relative;
-  z-index:2;
-  max-width:460px;
-  margin:0;
-  color:var(--text-600);
-  font-size:.78rem;
-  line-height:1.55;
-}
-
-.credential-pill{
-  position:relative;
-  z-index:2;
-  display:inline-flex;
-  margin-top:10px;
-  padding:6px 10px;
-  border:1px solid rgba(10,138,80,.12);
-  border-radius:999px;
-  color:var(--green-800);
-  background:#e5f5ec;
-  font-size:.66rem;
-  font-weight:900;
-}
-
-
-/* =========================================================
    POPUP AVISO PRIVACIDAD
 ========================================================= */
 
@@ -2244,7 +2102,7 @@ textarea{
 ========================================================= */
 
 .site-footer{
-  padding:50px 0 20px;
+  padding:32px 0 16px;
   color:rgba(255,255,255,.72);
   background:#03291e;
 }
@@ -2253,28 +2111,33 @@ textarea{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:40px;
-  padding-bottom:32px;
+  gap:36px;
+  padding-bottom:22px;
+}
+
+.footer-brand{
+  flex:0 0 auto;
 }
 
 .footer-logo-image{
   display:block;
   width:auto;
-  height:60px;
+  height:88px;
   object-fit:contain;
 }
 
 .footer-links{
   display:flex;
   flex-wrap:wrap;
-  gap:15px 25px;
+  justify-content:flex-end;
+  gap:12px 24px;
   align-items:center;
 }
 
 .footer-links a,
 .footer-privacy-button{
   color:inherit;
-  font-size:.82rem;
+  font-size:.8rem;
 }
 
 .footer-privacy-button{
@@ -2289,10 +2152,139 @@ textarea{
   color:var(--white);
 }
 
-.footer-bottom{
-  padding-top:18px;
+
+/* Registros y permisos integrados al footer */
+
+.footer-credentials{
+  display:grid;
+  grid-template-columns:190px minmax(0,1fr);
+  gap:28px;
+  align-items:center;
+  padding-top:22px;
+  padding-bottom:22px;
   border-top:1px solid rgba(255,255,255,.1);
-  font-size:.74rem;
+}
+
+.footer-credentials-intro{
+  align-self:start;
+  padding-top:3px;
+}
+
+.footer-section-kicker{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#89dfae;
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.footer-section-kicker::before{
+  content:"";
+  flex:0 0 auto;
+  width:24px;
+  height:2px;
+  border-radius:999px;
+  background:#45c77c;
+}
+
+.footer-credentials-intro p{
+  max-width:180px;
+  margin:8px 0 0;
+  color:rgba(255,255,255,.52);
+  font-size:.69rem;
+  line-height:1.5;
+}
+
+.footer-credentials-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  min-width:0;
+}
+
+.footer-credential-item{
+  min-width:0;
+  display:grid;
+  grid-template-columns:138px minmax(0,1fr);
+  align-items:center;
+  gap:15px;
+  padding:2px 24px 2px 0;
+}
+
+.footer-credential-item + .footer-credential-item{
+  padding-right:0;
+  padding-left:24px;
+  border-left:1px solid rgba(255,255,255,.1);
+}
+
+.footer-credential-logo-wrap{
+  width:138px;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.footer-credential-logo{
+  display:block;
+  width:auto;
+  max-width:138px;
+  max-height:68px;
+  object-fit:contain;
+}
+
+.footer-credential-logo-repse{
+  width:138px;
+}
+
+.footer-credential-logo-cdmx{
+  width:92px;
+  max-height:70px;
+  margin-inline:auto;
+}
+
+.footer-credential-copy{
+  min-width:0;
+}
+
+.footer-credential-kicker{
+  display:block;
+  margin-bottom:4px;
+  color:#89dfae;
+  font-size:.56rem;
+  font-weight:900;
+  letter-spacing:.11em;
+}
+
+.footer-credential-copy h3{
+  margin:0 0 4px;
+  color:#fff;
+  font-size:.84rem;
+  line-height:1.22;
+  letter-spacing:-.02em;
+}
+
+.footer-credential-copy p{
+  margin:0;
+  color:rgba(255,255,255,.58);
+  font-size:.66rem;
+  line-height:1.45;
+}
+
+.footer-credential-permit{
+  display:block;
+  margin-top:5px;
+  color:#9ce8bb;
+  font-size:.63rem;
+  font-weight:900;
+}
+
+.footer-bottom{
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:.72rem;
 }
 
 
@@ -2399,9 +2391,6 @@ button:focus-visible{
     font-size:2.55rem;
   }
 
-
-  /* VIDEO */
-
   .video-section{
     padding-top:58px;
     padding-bottom:58px;
@@ -2415,9 +2404,6 @@ button:focus-visible{
     max-width:820px;
     border-radius:22px;
   }
-
-
-  /* NOSOTROS */
 
   .about-grid{
     gap:48px;
@@ -2452,9 +2438,6 @@ button:focus-visible{
     padding:14px;
   }
 
-
-  /* MISIÓN */
-
   .mission-section{
     padding-top:20px;
     padding-bottom:58px;
@@ -2474,9 +2457,6 @@ button:focus-visible{
     margin-top:18px;
     font-size:.92rem;
   }
-
-
-  /* PILARES */
 
   .pillar-card{
     min-height:245px;
@@ -2507,9 +2487,6 @@ button:focus-visible{
     padding:5px 9px;
     font-size:.61rem;
   }
-
-
-  /* SERVICIOS */
 
   .services-section{
     padding-top:42px;
@@ -2571,9 +2548,6 @@ button:focus-visible{
     margin-top:7px;
     line-height:1.45;
   }
-
-
-  /* SUPERVISIÓN */
 
   .supervision-section{
     padding-top:32px;
@@ -2644,9 +2618,6 @@ button:focus-visible{
     line-height:1.3;
   }
 
-
-  /* TECNOLOGÍA */
-
   .technology-heading{
     margin-bottom:28px;
   }
@@ -2687,9 +2658,6 @@ button:focus-visible{
     font-size:.73rem;
   }
 
-
-  /* EQUIPO */
-
   .equipment-cards{
     gap:16px;
   }
@@ -2716,9 +2684,6 @@ button:focus-visible{
   .equipment-card p{
     font-size:.76rem;
   }
-
-
-  /* CONDICIONES */
 
   .conditions-section{
     padding-top:52px;
@@ -2759,9 +2724,6 @@ button:focus-visible{
     font-size:.72rem;
   }
 
-
-  /* CONTACTO */
-
   .contact-grid{
     gap:42px;
   }
@@ -2791,9 +2753,6 @@ button:focus-visible{
     min-height:46px;
   }
 
-
-  /* PRIVACIDAD */
-
   .privacy-modal-dialog{
     max-width:760px;
     padding:32px 38px;
@@ -2814,6 +2773,7 @@ button:focus-visible{
     font-size:.8rem;
     line-height:1.65;
   }
+
 }
 
 
@@ -2939,6 +2899,7 @@ button:focus-visible{
   .conditions-heading>p{
     max-width:600px;
   }
+
 }
 
 
@@ -2959,6 +2920,7 @@ button:focus-visible{
   .carousel-button-next{
     right:-14px;
   }
+
 }
 
 
@@ -2972,18 +2934,29 @@ button:focus-visible{
     grid-template-columns:1fr;
   }
 
-  .credentials-heading{
-    display:block;
+  .footer-credentials{
+    grid-template-columns:1fr;
+    gap:18px;
   }
 
-  .credentials-heading p{
-    margin-top:10px;
-    text-align:left;
+  .footer-credentials-intro p{
+    max-width:420px;
   }
 
-  .credentials-grid{
+  .footer-credentials-list{
     grid-template-columns:1fr;
   }
+
+  .footer-credential-item{
+    padding:0 0 16px;
+  }
+
+  .footer-credential-item + .footer-credential-item{
+    padding:16px 0 0;
+    border-left:0;
+    border-top:1px solid rgba(255,255,255,.1);
+  }
+
 }
 
 
@@ -3213,21 +3186,6 @@ button:focus-visible{
     padding:24px 20px;
   }
 
-  .credentials-section{
-    padding:16px 0 60px;
-  }
-
-  .credential-card{
-    min-height:165px;
-    padding:21px 19px;
-    border-radius:19px;
-  }
-
-  .credential-watermark{
-    right:10px;
-    font-size:3.8rem;
-  }
-
   .privacy-modal{
     padding:14px;
   }
@@ -3263,20 +3221,74 @@ button:focus-visible{
     font-size:.8rem;
   }
 
+  .site-footer{
+    padding-top:28px;
+  }
+
   .footer-grid{
     flex-direction:column;
-    align-items:flex-start;
+    align-items:center;
+    gap:18px;
+    padding-bottom:20px;
   }
 
   .footer-logo-image{
-    height:52px;
+    height:76px;
   }
 
   .footer-links{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:10px;
+    justify-content:center;
+    gap:9px 18px;
+    text-align:center;
   }
+
+  .footer-credentials{
+    gap:16px;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+
+  .footer-credentials-intro{
+    text-align:center;
+  }
+
+  .footer-section-kicker{
+    justify-content:center;
+  }
+
+  .footer-credentials-intro p{
+    max-width:100%;
+    margin-inline:auto;
+  }
+
+  .footer-credential-item{
+    grid-template-columns:112px minmax(0,1fr);
+    gap:13px;
+  }
+
+  .footer-credential-logo-wrap{
+    width:112px;
+    height:62px;
+  }
+
+  .footer-credential-logo{
+    max-width:112px;
+    max-height:60px;
+  }
+
+  .footer-credential-logo-repse{
+    width:112px;
+  }
+
+  .footer-credential-logo-cdmx{
+    width:76px;
+    max-height:60px;
+  }
+
+  .footer-bottom{
+    text-align:center;
+  }
+
 }
 
 
@@ -3320,6 +3332,22 @@ button:focus-visible{
     min-height:350px;
     height:350px;
   }
+
+  .footer-credential-item{
+    grid-template-columns:1fr;
+    gap:8px;
+    text-align:center;
+  }
+
+  .footer-credential-logo-wrap{
+    width:100%;
+    justify-content:center;
+  }
+
+  .footer-credential-logo-cdmx{
+    margin-inline:auto;
+  }
+
 }
 
 
@@ -3345,4 +3373,5 @@ button:focus-visible{
     background-attachment:scroll!important;
     background-position:center center!important;
   }
+
 }
